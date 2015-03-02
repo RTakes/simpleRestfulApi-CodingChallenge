@@ -3,3 +3,6 @@
 
 #ignore database credentials
 /config/config.json
+
+#ignore CSV Parser
+/csv_import
