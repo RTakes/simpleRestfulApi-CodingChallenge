@@ -1,0 +1,5 @@
+#ignore node moudules.  Run NPM install
+/node_modules
+
+#ignore database credentials
+/config/config.json
