@@ -32,9 +32,11 @@ module.exports = function(app){
 	app.get('/v1/users/:user/visits', function(req, res, next){
 		var user = req.params.user;
 		controller.getCitiesByUser(user, function(data){
-			//console.log(data);
-		});
-		res.send('visited');
+			res.send(data);
+		}), function(error){
+			res.send('An Error Occurred');
+			console.error(error);
+		};
 	});
 
 	//Allow user to post new cities they have visited

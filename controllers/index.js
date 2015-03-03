@@ -20,13 +20,26 @@ module.exports = {
     });
   },
   getCitiesByUser : function(user, success, fail) {
-
-    //UPDATE TO USE PROMISE MODEL
-    models.User.find({ where: {id: user} }).on('success', function(user) {
-      user.getCities().then(function(data){
-        console.log(data);
-      });
-    });
+    models.User.find({ 
+      where: {id: user} 
+    })
+    .then(function(user){
+      if(user){
+        user.getCities()
+        .then(function(data){
+          success(data);
+        });
+      }else{
+        var message = [{message: 'No cities found'}];
+        success(message);
+      }
+    })
+    .catch(function(error){
+      fail(error);
+    })
+    .finally(function(){
+      // finally gets called always regardless of whether the promises resolved with or without errors.
+    })
   },
   getCitiesByRadius: function(city, distance, success, fail){
 
