@@ -5,8 +5,9 @@ A simple restful api using Node, Express and MySQL.  This project creates a rest
 1. In terminal, navigate to the root project folder and run npm install
 2. Create a mySQL database and import the seed data from the data folder
 3. In the /config folder, rename config_example.json to config.json and add your database credentials
-4. Enjoy!
-5. 
+4. In terminal run node index.js.  The app is currently running on port 3000
+5. Enjoy!
+
 #API
 1. List all cities in a state.  {state} = State's abbreviation.  
 	- `GET /v1/states/{state}/cities`
