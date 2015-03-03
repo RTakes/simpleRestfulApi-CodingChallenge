@@ -2,9 +2,11 @@ var express = require('express');
 var app = express();
 var models = require("../models");
 var bodyParser = require('body-parser');
+var expressSanitized = require('express-sanitized');
 
 //Setup body parser for post requests
 app.use(bodyParser.json());
+app.use(expressSanitized());
 
 app.set('port', process.env.PORT || 3000);
 

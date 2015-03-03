@@ -22,7 +22,7 @@ module.exports = function(app){
 	app.get('/v1/states/:state/cities/:city', function(req, res, next){
 		var state = req.params.state;
 		var city = req.params.city;
-		var radius = req.query.radius;
+		var radius = req.query.radius || 100;
 
 		var message = ''+state+' '+city+' '+radius+' ';
 		res.send(message);
@@ -41,11 +41,13 @@ module.exports = function(app){
 
 	//Allow user to post new cities they have visited
 	app.post('/v1/users/:user/visits', function (req, res, next) {
-		// {
-		// 	"city": "Chicago",
-		// 	"state": "IL"
-		// }
-		req.send('user visits')
+		var userId = req.params.user;
+		var cityData = req.body;
+		controller.setUserCity(userId, cityData, function(data){
+			res.send(req.body)
+		}), function(error){
+
+		};
 	});
 
 };

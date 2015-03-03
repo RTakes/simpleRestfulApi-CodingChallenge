@@ -44,14 +44,27 @@ module.exports = {
   getCitiesByRadius: function(city, distance, success, fail){
 
   },
-  setUserCity : function(user, city, success, fail) {
-    // {
-    //   "city": "Chicago",
-    //   "state": "IL"
-    // }
-    // 
+  setUserCity : function(userId, cityData, success, fail) { 
+    // models.User.find({
+    //   where: {id: userId}
+    // }).then(function(user){
+
+    // })
+    //
+    // models.State.find({
+    //   where: {abbreviation: }
+    // }) 
+    // models.City.find({
+    //   where: {city_name:cityData.city}
+    // }).then(function(city){
+    //   city.getState()
+    //   .then(function(data){
+    //     console.log(data);
+    //   })
+    // });
+
     // models.User.find({ where: {id: user} }).on('success', function(user) {
-    //   models.City.find({where: {id: 10}}).on('success', function(city){
+    //   models.City.find({where: {name: cityData.city, stateID: }}).on('success', function(city){
     //     user.setCities([city]);
     //   });
     //   // if (user) { // if the record exists in the db
