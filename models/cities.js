@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
   var City = sequelize.define("City", {
     city_name : DataTypes.STRING,  
     longitude : DataTypes.FLOAT,
-    lattitude : DataTypes.FLOAT
+    latitude : DataTypes.FLOAT
   }, {
     classMethods: {
       associate: function(models) {
