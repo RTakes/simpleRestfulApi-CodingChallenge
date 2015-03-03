@@ -44,36 +44,27 @@ module.exports = {
   getCitiesByRadius: function(city, distance, success, fail){
 
   },
-  setUserCity : function(userId, cityData, success, fail) { 
-    // models.User.find({
-    //   where: {id: userId}
-    // }).then(function(user){
-
-    // })
-    //
-    // models.State.find({
-    //   where: {abbreviation: }
-    // }) 
-    // models.City.find({
-    //   where: {city_name:cityData.city}
-    // }).then(function(city){
-    //   city.getState()
-    //   .then(function(data){
-    //     console.log(data);
-    //   })
-    // });
-
-    // models.User.find({ where: {id: user} }).on('success', function(user) {
-    //   models.City.find({where: {name: cityData.city, stateID: }}).on('success', function(city){
-    //     user.setCities([city]);
-    //   });
-    //   // if (user) { // if the record exists in the db
-    //   //   user.updateAttributes({
-    //   //     last_name: 'notMine'
-    //   //   }).success(function() {});
-    //   // }
-      
-    // });
+  setUserCity : function(userId, cityData, success, fail) {    
+    models.City.findAll({
+      where: {city_name:cityData.city},
+      include: {model: models.State}
+    }).then(function(city){
+      for(var k in city){
+        var cityState = city[k];
+        console.log(cityState.State.abbreviation, cityData.state);
+        if(cityState.State.abbreviation === cityData.state){
+          models.User.find({
+            where: {id: userId}
+          }).then(function(user){
+            user.setCity(city);
+          })
+          // console.log('CITY------------------------------');
+          // console.log(cityState);
+        }
+        //console.log(cityState.State.abbreviation);
+      }
+      //console.log(city);
+    });
   }
 };
 

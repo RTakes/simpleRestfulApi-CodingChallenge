@@ -44,9 +44,9 @@ module.exports = function(app){
 		var userId = req.params.user;
 		var cityData = req.body;
 		controller.setUserCity(userId, cityData, function(data){
-			res.send(req.body)
+			res.send(req.body);
 		}), function(error){
-
+			res.send(req.body);
 		};
 	});
 
