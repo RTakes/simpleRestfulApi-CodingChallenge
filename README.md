@@ -1,5 +1,12 @@
 # simpleRestfulApi
 A simple restful api using Node, Express and MySQL.  This project creates a restful api, allowing users to create lists of cities they have visited.
+
+#Getting Started
+1. In terminal, navigate to the root project folder and run npm install
+2. Create a mySQL database and import the seed data from the data folder
+3. In the /config folder, rename config_example.json to config.json and add your database credentials
+4. Enjoy!
+5. 
 #API
 1. List all cities in a state.  {state} = State's abbreviation.  
 	- `GET /v1/states/{state}/cities`
@@ -27,9 +34,4 @@ A simple restful api using Node, Express and MySQL.  This project creates a rest
 	- example: Get all visited cities for user with id = 20
 	- http://yourdomain.com/v1/users/20/visits
 	
-#Getting Started
-1. In terminal, navigate to the root project folder and run npm install
-2. Create a mySQL database and import the seed data from the data folder
-3. In the /config folder, rename config_example.json to config.json and add your database credentials
-4. Enjoy!
 
