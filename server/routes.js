@@ -11,7 +11,11 @@ module.exports = function(app){
 
 	//Get the cities in a state
 	app.get('/v1/states/:state/cities', function(req, res, next){
-		res.send('cities');
+		var state = req.params.state;
+		controller.getCitiesByState(state, function(data){
+			res.send(data);
+		});
+		
 	});
 
 	//Get cities within a specified radius
@@ -27,6 +31,9 @@ module.exports = function(app){
 	//Get cities user has visited
 	app.get('/v1/users/:user/visits', function(req, res, next){
 		var user = req.params.user;
+		controller.getCitiesByUser(user, function(data){
+			//console.log(data);
+		});
 		res.send('visited');
 	});
 
