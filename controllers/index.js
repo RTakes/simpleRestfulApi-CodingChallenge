@@ -3,7 +3,7 @@ var distCalculator = require('./distance');
 
 module.exports = {
   getCitiesByState : function(state, success, fail) {
-    var attr = ['id', 'city_name'];
+    var attr = ['city_name'];
     models.State.find({
       where: {abbreviation : state}, 
       include:[{model: models.City, attributes: attr}]
