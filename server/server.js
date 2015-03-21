@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var models = require("../models");
+var models = require('../models');
 var bodyParser = require('body-parser');
 var expressSanitized = require('express-sanitized');
 
